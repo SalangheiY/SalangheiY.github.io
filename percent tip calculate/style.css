@@ -1,0 +1,50 @@
+h1 {
+  text-align: center;
+  font-size: 50px;
+  color: pink;
+}
+
+h1 > span  {
+  color: aquamarine;
+}
+
+form {
+  width: 700px;
+  height: 480px;
+  font-size: 35px;
+  color: white;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: mediumblue;
+  margin: auto;
+  padding: 60px;
+}
+
+form > div {
+  padding-bottom: 25px;
+}
+
+label {
+  display: inline-block;
+  width: 300px;
+  margin-right: 25px;
+}
+
+input {
+  margin-right: 50px;
+  width: 100px;
+  height: 25px;
+  padding: 2.5px 40px;
+  text-align: center;
+}
+
+button {
+  width: 150px;
+  height: 35px;
+  border-radius: 15px;
+  font-size: 25px;
+  color: white;
+  background-color: red;
+  border-style: none;
+  margin: 25px 200px 15px 200px
+}
