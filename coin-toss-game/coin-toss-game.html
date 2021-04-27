@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes spin {
+            0% {background: url("./heads.png")}
+            
+            25% {background: url("./tails.png")}
+            
+            50% {background: url("./heads.png")}
+            
+            75% {background: url("./tails.png")}
+            
+            100% {background: url("./heads.png")}
+        }
+        #image{
+            background: url("./heads.png");
+            width: 227px;
+            height: 337px;
+            
+        }
+
+        .animate{
+            background: url("./heads.png");
+            width: 227px;
+            height: 337px;
+            animation-name: spin;
+            animation-iteration-count: 2;
+            animation-duration: 1s;
+        }
+
+        .canvas{
+            width: 800px;
+            height: 500px;
+            margin: 50px auto;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5em;
+        }
+        #center{
+            width: 227px;
+            margin: 15px auto;
+        }
+
+        .selection, #player, #computer{
+            display: inline;
+            margin: 25px;
+            font-size: 1.3em;
+        }
+
+        button {
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas">
+        <h1>First Player to 5 Points Win!</h1>
+        <div class="selection">Player Selected: <span id="selection-player"></span></div>
+        <div class="selection">Computer Selected: <span id="selection-computer"></span></div>
+        <div id="center">
+            <div id="winner"></div>
+            <div id="image"></div>
+        </div>
+        <div id="player">Player: <span id="player-score">0</span></div>
+        <div id="computer">Computer: <span id="computer-score">0</span></div>   
+        <div>
+            <h2>Make a Selection</h2>
+            <button id="heads">Heads</button>
+            <button id="tails">Tails</button>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+    <!-- <script>
+        const buttons = document.querySelectorAll('button')
+        let heads = 1;
+        let tails = 0;
+        let userScore = 0;
+        let computerScore = 0;
+
+        // 给选项赋值
+        function displaySelections(user, computer) {
+            const playerSelection = document.querySelector('#selection-player');
+            const computerSelection = document.querySelector('#selection-computer');
+            if(user === 'heads') {
+                playerSelection.style.color = 'green'
+            }else if (user === 'tails') {
+                playerSelection.style.color = 'blue'
+            }
+            if (computer === 'heads') {
+                computerSelection.style.color = 'green'
+            }else if (computer === 'tails') {
+                computerSelection.style.color = 'blue'
+            }
+            playerSelection.innerHTML = `${user}`
+            computerSelection.innerHTML = `${computer}`
+        }
+
+        // 展示图片
+        function displayRandom(random) {
+            let displayResult = document.querySelector('#image')
+            console.log(random);
+
+            if(random === 1) {
+                displayResult.style.backgroundImage = "url('./heads.png')"
+            } else {
+                displayResult.style.backgroundImage = "url('./tails.png')"
+            }
+        }
+
+        // 展示人和机器获得的分数
+        function tallyScore(random, userPick, computerPick) {
+            const userDisplay = document.querySelector('#player-score')
+            const computerDisplay = document.querySelector('#computer-score')
+            const winner = document.querySelector('#winner')
+            if (userPick === random) {
+                userScore++
+            }
+            if (computerScore === random) {
+                computerScore++
+            }
+            userDisplay.textContent = `${userScore}`
+            computerDisplay.textContent = `${computerScore}`
+
+            if(userScore === 5 && computerScore === 5) {
+                winner.innerHTML = `<h1>It is a tie.</h1>`
+            } else if (userScore ===5 ) {
+                winner.innerHTML = `<h1>You Win !!!</h1>`
+            }else if (computerScore === 5) {
+                winner.innerHTML = `<h1>Computer Wins !!!</h1>`
+            }
+        }
+
+        //add an evenet listener to the button
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+
+                // 产生随机数，传入random函数 用来决定正反面
+                const random = Math.round(Math.random())
+                
+                //计算机随机压正反面
+                const computerPick = Math.round(Math.random())
+
+                // 用来记录电脑的选择
+                let computerSelection;
+
+                if (computerPick === 1) {
+                    computerSelection = 'heads';
+                } else {
+                    computerSelection = 'tails';
+                }
+
+                const spin = document.querySelector('#image')
+                spin.classList.add('animate')
+
+                // 用来记录用户的选择
+                const userSelection = e.target.id;
+                let userPick;
+                if(userSelection === 'heads') {
+                    userPick = 1;
+                }else if (userSelection === 'tails') {
+                    userPick = 0;
+                }
+                
+                displaySelections(userSelection, computerSelection);
+                displayRandom(random);
+
+                setTimeout(function() {
+                    tallyScore(random, userPick, computerPick);
+                    document.querySelector('#image').classList.remove('animate');
+                }, 2000)
+            })
+        })
+    </script> -->
+</body>
+</html>
